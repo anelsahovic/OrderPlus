@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <BorderPane layoutX="70.0" layoutY="184.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-167.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@homeDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="168.0" text="Dobrodošli," textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="189.0" prefWidth="89.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="38.0" layoutX="131.0" layoutY="226.0" startX="-100.0" stroke="WHITE" />
+                        <Button fx:id="home_btn" layoutX="10.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@homeDesign.css" text="Početna">
+                           <graphic>
+                        
+                           </graphic>
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="myProfile_btn" layoutX="10.0" layoutY="294.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@homeDesign.css" text="Moj Profil">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="USER" size="1.5em" />
+                           </graphic></Button>
+                        <Button fx:id="inventory_btn" layoutX="11.0" layoutY="365.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@homeDesign.css" text="Inventar">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="1.5em" />
+                           </graphic></Button>
+                        <Button fx:id="customers_btn" layoutX="10.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@homeDesign.css" text="Kupci">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="USERS" size="1.5em" />
+                           </graphic></Button>
+                        <Button fx:id="orders_btn" layoutX="10.0" layoutY="435.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@homeDesign.css" text="Narudžbe">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" size="1.5em" />
+                           </graphic></Button>
+                        <Button fx:id="logout" layoutX="10.0" layoutY="551.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@homeDesign.css" text="Odjava">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
+                           </graphic></Button>
+                        <Button fx:id="settings_btn" layoutX="10.0" layoutY="516.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@homeDesign.css" text="Postavke">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="GEAR" size="1.5em" />
+                           </graphic></Button>
+                        <FontAwesomeIcon fill="WHITE" glyphName="BRIEFCASE" layoutX="52.0" layoutY="136.0" size="8em" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="home_form" layoutX="11.0" layoutY="11.0" prefHeight="579.0" prefWidth="877.0" stylesheets="@homeDesign.css">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="white-bg" />
+                           </styleClass>
+                           <children>
+                              <AnchorPane layoutY="124.0" prefHeight="162.0" prefWidth="878.0" stylesheets="@homeDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="48.0" layoutY="20.0" prefHeight="123.0" prefWidth="200.0" styleClass="dark-bg" stylesheets="@homeDesign.css">
+                                       <children>
+                                           <Label layoutX="82.0" layoutY="85.0" text="Ukupno Kupaca" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="customerCountLabel" layoutX="167.0" layoutY="14.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="17.0" layoutY="81.0" size="5em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="339.0" layoutY="20.0" prefHeight="123.0" prefWidth="200.0" styleClass="dark-bg" stylesheets="@homeDesign.css">
+                                       <children>
+                                           <Label layoutX="77.0" layoutY="85.0" text="Ukupno Narudžbi" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ordersCountLabel" layoutX="169.0" layoutY="14.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" layoutX="21.0" layoutY="75.0" size="5em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="631.0" layoutY="20.0" prefHeight="123.0" prefWidth="200.0" styleClass="dark-bg" stylesheets="@homeDesign.css">
+                                       <children>
+                                           <Label layoutX="120.0" layoutY="85.0" text="Na stanju " textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="availableCountLabel" layoutX="169.0" layoutY="14.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="MOBILE" layoutX="31.0" layoutY="92.0" size="7em" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="17.0" prefHeight="88.0" prefWidth="878.0" stylesheets="@homeDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <FontAwesomeIcon fill="#207dbf" glyphName="INFO" layoutX="37.0" layoutY="52.0" size="2em" />
+                                    <Circle fill="#1f93ff00" layoutX="41.0" layoutY="44.0" radius="20.0" stroke="#207dbf" strokeType="INSIDE" strokeWidth="3.0" />
+                                    <Label layoutX="69.0" layoutY="35.0" text="Dobrodošli u OrderPlus aplikaciju!">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <FontAwesomeIcon fill="#207dbf" glyphName="HOME" layoutX="393.0" layoutY="56.0" size="3em" />
+                                    <Label layoutX="433.0" layoutY="32.0" text="Home" textFill="#08304a">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="740.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/logoPng.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="798.0" layoutY="36.0" text="OrderPlus" textFill="#521057">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="305.0" prefHeight="88.0" prefWidth="878.0" stylesheets="@homeDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="68.0" layoutY="14.0" prefHeight="60.0" prefWidth="207.0" styleClass="promet-card" stylesheets="@homeDesign.css">
+                                       <children>
+                                          <Label layoutX="43.0" layoutY="21.0" text="Prihodi">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="prihodiLabel" layoutX="124.0" layoutY="20.0" text="100000">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="#403f3f" glyphName="ARROW_RIGHT" layoutX="18.0" layoutY="26.0" size="1.5em" />
+                                          <FontAwesomeIcon fill="#096b0e" glyphName="ARROW_LEFT" layoutX="18.0" layoutY="46.0" size="1.5em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="336.0" layoutY="14.0" prefHeight="60.0" prefWidth="207.0" styleClass="promet-card" stylesheets="@homeDesign.css">
+                                       <children>
+                                          <Label layoutX="45.0" layoutY="21.0" text="Rashodi">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="rashodiLabel" layoutX="126.0" layoutY="20.0" text="100000">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="#a10c0c" glyphName="ARROW_RIGHT" layoutX="20.0" layoutY="26.0" size="1.5em" />
+                                          <FontAwesomeIcon fill="#403f3f" glyphName="ARROW_LEFT" layoutX="20.0" layoutY="46.0" size="1.5em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="608.0" layoutY="14.0" prefHeight="60.0" prefWidth="207.0" styleClass="promet-card" stylesheets="@homeDesign.css">
+                                       <children>
+                                          <Label layoutX="45.0" layoutY="21.0" text="Profit">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="profitLabel" layoutX="126.0" layoutY="20.0" text="100000">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="#11d024" glyphName="PLUS" layoutX="22.0" layoutY="38.0" size="1.5em" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="21.0" layoutY="415.0" prefHeight="146.0" prefWidth="146.0" styleClass="home-buttons-card" stylesheets="@homeDesign.css" />
+                              <Button fx:id="homeMyProfileBtn" layoutX="44.0" layoutY="428.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100%;" styleClass="home-buttons" stylesheets="@homeDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="USER" size="4em" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="61.0" layoutY="534.0" text="MOJ PROFIL" textFill="#521057" />
+                              <AnchorPane layoutX="255.0" layoutY="415.0" prefHeight="146.0" prefWidth="146.0" styleClass="home-buttons-card" stylesheets="@homeDesign.css" />
+                              <Button fx:id="homeInventoryBtn" layoutX="278.0" layoutY="428.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100%;" styleClass="home-buttons" stylesheets="@homeDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="4em" text="" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="302.0" layoutY="534.0" text="INVENTAR" textFill="#521057" />
+                              <AnchorPane layoutX="484.0" layoutY="415.0" prefHeight="146.0" prefWidth="146.0" styleClass="home-buttons-card" stylesheets="@homeDesign.css" />
+                              <Button fx:id="homeOrdersButton" layoutX="507.0" layoutY="428.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100%;" styleClass="home-buttons" stylesheets="@homeDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" size="4em" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="528.0" layoutY="534.0" text="NARUDŽBE" textFill="#521057" />
+                              <AnchorPane layoutX="716.0" layoutY="415.0" prefHeight="146.0" prefWidth="146.0" styleClass="home-buttons-card" stylesheets="@homeDesign.css" />
+                              <Button fx:id="homeCustomersButton" layoutX="739.0" layoutY="428.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100%;" styleClass="home-buttons" stylesheets="@homeDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="USERS" size="4em" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="774.0" layoutY="534.0" text="KUPCI" textFill="#521057" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="customers_form" layoutX="122.0" layoutY="183.0" prefHeight="579.0" prefWidth="678.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="572.0" prefWidth="877.0" stylesheets="@homeDesign.css">
+                                 <children>
+                                    <AnchorPane prefHeight="287.0" prefWidth="878.0" stylesheets="@homeDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="customerTable" layoutX="93.0" layoutY="51.0" prefHeight="236.0" prefWidth="678.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
+                                            <columns>
+                                              <TableColumn fx:id="ctID" prefWidth="95.0" text="ID" />
+                                              <TableColumn fx:id="ctFirstName" prefWidth="95.0" text="Ime" />
+                                                <TableColumn fx:id="ctLastName" prefWidth="95.0" text="Prezime" />
+                                                <TableColumn fx:id="ctGender" prefWidth="95.0" text="Pol" />
+                                                <TableColumn fx:id="ctCity" prefWidth="95.0" text="Grad" />
+                                                <TableColumn fx:id="ctPostalCode" prefWidth="95.0" text="Poš broj" />
+                                                <TableColumn fx:id="ctAddress" prefWidth="110.0" text="Adresa" />
+                                                <TableColumn fx:id="ctPhoneNumber" prefWidth="95.0" text="Broj tel" />
+                                                <TableColumn fx:id="ctUsername" prefWidth="101.0" text="Username" />
+                                            </columns>
+                                          </TableView>
+                                          <TextField fx:id="customerSearchTxtField" layoutX="14.0" layoutY="10.0" onInputMethodTextChanged="#showCustomersTable" onKeyPressed="#showCustomersTable" onKeyReleased="#showCustomersTable" onKeyTyped="#showCustomersTable" prefHeight="32.0" prefWidth="213.0" promptText="Pretraži" styleClass="search" stylesheets="@homeDesign.css" />
+                                          <FontAwesomeIcon fill="#8c189e" glyphName="SEARCH" layoutX="204.0" layoutY="30.0" size="1.2em" />
+                                          <Label layoutX="735.0" layoutY="16.0" text="Spisak Kupaca">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextField fx:id="firstNameTxtField" layoutX="48.0" layoutY="406.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="49.0" layoutY="389.0" text="Ime" />
+                                    <TextField fx:id="lastNameTxtField" layoutX="49.0" layoutY="493.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="50.0" layoutY="476.0" text="Prezime" />
+                                    <TextField fx:id="customerIdTxtField" layoutX="47.0" layoutY="332.0" prefHeight="25.0" prefWidth="65.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="48.0" layoutY="315.0" text="ID" />
+                                    <TextField fx:id="cityTxtField" layoutX="286.0" layoutY="404.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="287.0" layoutY="387.0" text="Grad" />
+                                    <TextField fx:id="postalCodeTxtField" layoutX="286.0" layoutY="491.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="287.0" layoutY="474.0" text="Poštanski broj" />
+                                    <TextField fx:id="addressTxtField" layoutX="535.0" layoutY="325.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="536.0" layoutY="308.0" text="Adresa" />
+                                    <TextField fx:id="phoneNumberTxtField" layoutX="535.0" layoutY="403.0" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="536.0" layoutY="386.0" text="Broj telefona" />
+                                    <TextField fx:id="usernameTxtField" layoutX="536.0" layoutY="487.0" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="537.0" layoutY="470.0" text="Username" />
+                                    <Button layoutX="752.0" layoutY="473.0" mnemonicParsing="false" onAction="#clearCustomerFields" prefHeight="35.0" prefWidth="66.0" styleClass="clear-btn" stylesheets="@homeDesign.css" text="Očisti" />
+                                    <Button layoutX="752.0" layoutY="423.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="35.0" prefWidth="66.0" styleClass="delete-btn" stylesheets="@homeDesign.css" text="Obriši" />
+                                    <Button layoutX="752.0" layoutY="375.0" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="35.0" prefWidth="66.0" styleClass="update-btn" stylesheets="@homeDesign.css" text="Ažuriraj" />
+                                    <Button layoutX="752.0" layoutY="326.0" mnemonicParsing="false" onAction="#insertNewCustomer" prefHeight="35.0" prefWidth="66.0" styleClass="add-btn" stylesheets="@homeDesign.css" text="Dodaj" />
+                                    <Label layoutX="287.0" layoutY="312.0" text="Pol" />
+                                    <ChoiceBox fx:id="genderChoiceBox" layoutX="286.0" layoutY="329.0" prefHeight="25.0" prefWidth="65.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Button layoutX="82.0" layoutY="332.0" mnemonicParsing="false" onAction="#selectCustomer" prefHeight="24.0" prefWidth="30.0" styleClass="select-btn" stylesheets="@homeDesign.css" text="GO" />
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="inventory_form" layoutY="7.0" prefHeight="586.0" prefWidth="887.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="14.0" prefHeight="572.0" prefWidth="880.0" stylesheets="@homeDesign.css">
+                                 <children>
+                                    <AnchorPane prefHeight="285.0" prefWidth="883.0" stylesheets="@homeDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="inventoryTable" layoutX="93.0" layoutY="50.0" prefHeight="235.0" prefWidth="883.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                             <columns>
+                                                <TableColumn fx:id="itID" prefWidth="63.0" text="ID" />
+                                                <TableColumn fx:id="itManuf" prefWidth="79.0" text="Proizvođač" />
+                                                <TableColumn fx:id="itModel" prefWidth="119.0" text="Model" />
+                                                <TableColumn fx:id="itColor" prefWidth="87.0" text="Boja" />
+                                                <TableColumn fx:id="itBattery" prefWidth="62.0" text="Baterija" />
+                                                <TableColumn fx:id="itImei" prefWidth="134.0" text="IMEI" />
+                                                <TableColumn fx:id="itStorage" prefWidth="65.0" text="GB" />
+                                                <TableColumn fx:id="itPrice" prefWidth="73.0" text="Cijena" />
+                                                <TableColumn fx:id="itDate" prefWidth="105.0" text="Datum" />
+                                                <TableColumn fx:id="itAvailability" prefWidth="94.0" text="Dostupnost" />
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="phoneSearchTxtField" layoutX="14.0" layoutY="10.0" onInputMethodTextChanged="#showInventoryTable" onKeyPressed="#showInventoryTable" onKeyReleased="#showInventoryTable" onKeyTyped="#showInventoryTable" prefHeight="32.0" prefWidth="213.0" promptText="Pretraži" styleClass="search" stylesheets="@homeDesign.css" />
+                                         <FontAwesomeIcon fill="#8c189e" glyphName="SEARCH" layoutX="204.0" layoutY="30.0" size="1.2em" />
+                                           <Label layoutX="731.0" layoutY="16.0" text="Spisak Telefona">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextField fx:id="proizvodjacTextField" layoutX="33.0" layoutY="363.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="34.0" layoutY="346.0" text="Proizvođač" />
+                                    <TextField fx:id="modelTxtField" layoutX="33.0" layoutY="439.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="34.0" layoutY="422.0" text="Model" />
+                                    <TextField fx:id="phoneIdTxtField" layoutX="33.0" layoutY="312.0" onInputMethodTextChanged="#selectPhone" prefHeight="25.0" prefWidth="65.0" styleClass="id-textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="34.0" layoutY="295.0" text="ID" />
+                                    <TextField fx:id="batteryTxtField" layoutX="279.0" layoutY="359.0" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="280.0" layoutY="342.0" text="Postotak baterije" />
+                                    <TextField fx:id="imeiTxtField" layoutX="279.0" layoutY="435.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="280.0" layoutY="418.0" text="IMEI" />
+                                    <TextField fx:id="gbTxtField" layoutX="279.0" layoutY="511.0" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="280.0" layoutY="494.0" text="Pohrana" />
+                                    <Label layoutX="525.0" layoutY="414.0" text="Datum" />
+                                    <Label layoutX="526.0" layoutY="494.0" text="Dostupnost" />
+                                    <Button fx:id="clearPhoneBtn" layoutX="749.0" layoutY="501.0" mnemonicParsing="false" onAction="#clearPhoneFields" prefHeight="35.0" prefWidth="66.0" styleClass="clear-btn" stylesheets="@homeDesign.css" text="Očisti" />
+                                    <Button fx:id="deletePhoneBtn" layoutX="749.0" layoutY="452.0" mnemonicParsing="false" onAction="#deletePhone" prefHeight="35.0" prefWidth="66.0" styleClass="delete-btn" stylesheets="@homeDesign.css" text="Obriši" />
+                                    <Button fx:id="updatePhoneBtn" layoutX="749.0" layoutY="403.0" mnemonicParsing="false" onAction="#updatePhone" prefHeight="35.0" prefWidth="66.0" styleClass="update-btn" stylesheets="@homeDesign.css" text="Ažuriraj" />
+                                    <Button fx:id="addPhoneBtn" layoutX="749.0" layoutY="353.0" mnemonicParsing="false" onAction="#insertNewPhone" prefHeight="35.0" prefWidth="66.0" styleClass="add-btn" stylesheets="@homeDesign.css" text="Dodaj" />
+                                    <Label layoutX="34.0" layoutY="498.0" text="Boja" />
+                                    <TextField fx:id="bojaTxtField" layoutX="33.0" layoutY="515.0" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <DatePicker fx:id="datumTxtField" layoutX="524.0" layoutY="432.0" prefHeight="25.0" prefWidth="146.0" promptText="Unesi datum" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <TextField fx:id="cijenaTxtField" layoutX="523.0" layoutY="355.0" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="524.0" layoutY="338.0" text="Cijena" />
+                                    <ChoiceBox fx:id="dostupnostChoiceBox" layoutX="525.0" layoutY="511.0" prefHeight="25.0" prefWidth="146.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Button layoutX="68.0" layoutY="312.0" mnemonicParsing="false" onAction="#selectPhone" prefHeight="24.0" prefWidth="30.0" styleClass="select-btn" stylesheets="@homeDesign.css" text="GO" />
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="orders_form" layoutX="150.0" layoutY="139.0" prefHeight="600.0" prefWidth="700.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="575.0" prefWidth="220.0" stylesheets="@homeDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="orderSearchTxtField" layoutX="12.0" layoutY="42.0" onInputMethodTextChanged="#showOrdersTable" onKeyPressed="#showOrdersTable" onKeyReleased="#showOrdersTable" onKeyTyped="#showOrdersTable" prefHeight="25.0" prefWidth="196.0" promptText="Pretraži..." styleClass="search" stylesheets="@homeDesign.css" />
+                                    <FontAwesomeIcon fill="#8c189e" glyphName="SEARCH" layoutX="189.0" layoutY="59.0" size="1.2em" />
+                                    <TextField fx:id="orderIDtxtField" layoutX="68.0" layoutY="87.0" prefHeight="25.0" prefWidth="130.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="43.0" layoutY="91.0" text="ID" />
+                                    <Label layoutX="23.0" layoutY="131.0" text="Kupac" />
+                                    <Label layoutX="32.0" layoutY="171.0" text="IMEI" />
+                                    <DatePicker fx:id="orderDatePicker" layoutX="66.0" layoutY="326.0" prefHeight="25.0" prefWidth="130.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="24.0" layoutY="330.0" text="Datum" />
+                                    <TextField fx:id="orderPriceTxtField" layoutX="66.0" layoutY="368.0" prefHeight="25.0" prefWidth="130.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="26.0" layoutY="372.0" text="Cijena" />
+                                    <TextField fx:id="extraCostTxtField" layoutX="122.0" layoutY="409.0" prefHeight="25.0" prefWidth="74.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="26.0" layoutY="413.0" text="Dodatni troškovi" />
+                                    <Button layoutX="29.0" layoutY="457.0" mnemonicParsing="false" onAction="#updateOrder" prefHeight="40.0" prefWidth="66.0" styleClass="update-btn" stylesheets="@homeDesign.css" text="Ažuriraj" />
+                                    <Button layoutX="126.0" layoutY="457.0" mnemonicParsing="false" onAction="#insertNewOrder" prefHeight="40.0" prefWidth="66.0" styleClass="add-btn" stylesheets="@homeDesign.css" text="Dodaj" />
+                                    <Button layoutX="29.0" layoutY="519.0" mnemonicParsing="false" onAction="#clearOrderFields" prefHeight="40.0" prefWidth="66.0" styleClass="clear-btn" stylesheets="@homeDesign.css" text="Očisti" />
+                                    <Button layoutX="126.0" layoutY="519.0" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="40.0" prefWidth="66.0" styleClass="delete-btn" stylesheets="@homeDesign.css" text="Obriši" />
+                                    <Label layoutX="69.0" layoutY="10.0" text="Narudžbe">
+                                       <font>
+                                          <Font name="Arial Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="customerChoiceBox" layoutX="68.0" layoutY="127.0" prefHeight="25.0" prefWidth="130.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <ChoiceBox fx:id="imeiChoiceBox" layoutX="68.0" layoutY="167.0" prefHeight="25.0" prefWidth="130.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="10.0" layoutY="205.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                       </styleClass>
+                                    </Rectangle>
+                                    <Label layoutX="64.0" layoutY="211.0" text="Podaci o telefonu" />
+                                    <Label fx:id="modelOrderTxtField" alignment="CENTER" layoutX="110.0" layoutY="234.0" prefHeight="17.0" prefWidth="100.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="colorOrderTxtField" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="251.0" prefHeight="17.0" prefWidth="101.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="storageOrderTxtField" alignment="CENTER" layoutX="110.0" layoutY="268.0" prefHeight="17.0" prefWidth="100.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryOrderTxtField" alignment="CENTER" layoutX="110.0" layoutY="286.0" prefHeight="17.0" prefWidth="100.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="171.0" layoutY="87.0" mnemonicParsing="false" onAction="#selectOrder" prefHeight="24.0" styleClass="select-btn" stylesheets="@homeDesign.css" text="GO" />
+                                    <Line endX="1.0" endY="48.0" layoutX="109.0" layoutY="261.0" startX="0.5" startY="-32.0" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="234.0" prefHeight="17.0" prefWidth="100.0" text="Model">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="9.0" layoutY="252.0" prefHeight="17.0" prefWidth="100.0" text="Boja">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="9.0" layoutY="268.0" prefHeight="17.0" prefWidth="100.0" text="Pohrana">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="9.0" layoutY="286.0" prefHeight="17.0" prefWidth="100.0" text="Baterija">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="241.0" layoutY="14.0" prefHeight="575.0" prefWidth="648.0" stylesheets="@homeDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="ordersTable" prefHeight="575.0" prefWidth="649.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="otID" prefWidth="39.0" text="ID" />
+                                        <TableColumn fx:id="otCustomer" prefWidth="105.0" text="Kupac" />
+                                          <TableColumn fx:id="otPhone" prefWidth="122.0" text="Telefon" />
+                                          <TableColumn fx:id="otImei" prefWidth="135.0" text="IMEI" />
+                                          <TableColumn fx:id="otDate" prefWidth="100.0" text="Datum" />
+                                          <TableColumn fx:id="otPrice" prefWidth="76.0" text="Cijena" />
+                                          <TableColumn fx:id="otExpences" prefWidth="70.0" text="+Troškovi" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="myProfile_form" layoutX="72.0" layoutY="85.0" prefHeight="600.0" prefWidth="700.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="205.0" layoutY="186.0" prefHeight="369.0" prefWidth="489.0" stylesheets="@homeDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <FontAwesomeIcon fill="#070707" glyphName="USER" layoutX="215.0" layoutY="86.0" size="7em" />
+                                    <Button layoutX="192.0" layoutY="299.0" mnemonicParsing="false" onAction="#updateMyProfile" prefHeight="45.0" prefWidth="106.0" styleClass="update-btn" stylesheets="@homeDesign.css" text="Ažuriraj">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField fx:id="profileCompanyName" layoutX="43.0" layoutY="166.0" prefHeight="30.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <TextField fx:id="profileCompanyUsername" layoutX="298.0" layoutY="166.0" prefHeight="30.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <TextField fx:id="profileCompanyPass" layoutX="43.0" layoutY="239.0" prefHeight="30.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <TextField fx:id="profileCompanyPassRepeat" layoutX="298.0" layoutY="239.0" prefHeight="30.0" styleClass="textfield" stylesheets="@homeDesign.css" />
+                                    <Label layoutX="44.0" layoutY="147.0" text="Naziv">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="299.0" layoutY="146.0" text="Username">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="44.0" layoutY="219.0" text="Stara Lozinka">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="300.0" layoutY="219.0" text="Nova Lozinka">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="companyNameLabel" alignment="CENTER" layoutY="107.0" prefHeight="23.0" prefWidth="489.0" text="Moj Profil">
+                                       <font>
+                                          <Font name="Arial Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <ImageView fitHeight="101.0" fitWidth="110.0" layoutX="399.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logoPng.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="391.0" layoutY="134.0" text="OrderPlus">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="791.0" layoutY="574.0" text="All rights reserved" />
+                              <Label layoutX="14.0" layoutY="574.0" text="Developed by Anel" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="settings_form" layoutY="5.0" prefHeight="600.0" prefWidth="900.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="206.0" layoutY="184.0" prefHeight="369.0" prefWidth="489.0" stylesheets="@homeDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                   <FontAwesomeIcon fill="#070707" glyphName="GEAR" layoutX="215.0" layoutY="86.0" size="7em" />
+                                     <Label layoutX="211.0" layoutY="98.0" text="Postavke">
+                                       <font>
+                                          <Font name="Arial Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="224.0" layoutY="176.0" text="USKORO..." />
+                                 </children>
+                              </AnchorPane>
+                              <ImageView fitHeight="101.0" fitWidth="110.0" layoutX="400.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logoPng.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="392.0" layoutY="133.0" text="OrderPlus">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
